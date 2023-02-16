@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCep.View.BairroPorCidade">
+    <ContentPage.Content>
+        
+            <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+
+                <StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Picker x:Name="pck_estado"
+                     SelectedIndexChanged="pck_estado_SelectedIndexChanged"
+                     Title="Selecione o Estado:">
+                            <Picker.Items>
+                                <x:String>SP</x:String>
+                                <x:String>MG</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    <Picker x:Name="pck_cidade"
+                            SelectedIndexChanged=""
+                            
+                        
+                        
+                        
+                        
+                        
+                    </Picker>
+
+                    </StackLayout>
+
+                    <ListView.ItemTemplate x:Name="lst_bairros">
+                        <ListView.Header>
+                            <StackLayout>
+                                <Label Text="Nome do Bairro:"/>
+                            </StackLayout>
+                        </ListView.Header>
+                    </ListView.ItemTemplate>
+                    <DataTemplete>
+                        <ViewCell>
+
+                            <StackLayout>
+
+                                <Label Text="{Binding descricao_bairro}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplete>
+
+
+                </StackLayout>
+            </AbsoluteLayout>
+        </ContentPage.Content>
+</ContentPage>
