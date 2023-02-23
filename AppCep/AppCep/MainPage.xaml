@@ -20,25 +20,23 @@
                     </Picker>
 
                 </StackLayout>
-
-                <ListView.ItemTemplate x:Name="lst_bairros">
+                
+                <ListView>
                     <ListView.Header>
                         <StackLayout>
-                            <Label Text="Nome do Bairro:"/>
+                            <Label Text="Nome do Bairro: "/>
                         </StackLayout>
                     </ListView.Header>
-                </ListView.ItemTemplate>
-                <DataTemplete>
-                    <ViewCell>
-
-                        <StackLayout>
-
-                            <Label Text="{Binding descricao_bairro}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplete>
-                      
-
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding descricao_bairro}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

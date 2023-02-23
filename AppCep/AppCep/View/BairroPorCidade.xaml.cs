@@ -16,5 +16,15 @@ namespace AppCep.View
         {
             InitializeComponent();
         }
+
+        private void pck_estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pck_cidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

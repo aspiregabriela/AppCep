@@ -3,52 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCep.View.BairroPorCidade">
     <ContentPage.Content>
-        
-            <AbsoluteLayout HorizontalOptions="FillAndExpand"
+
+        <AbsoluteLayout HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand">
 
-                <StackLayout>
+            <StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Picker x:Name="pck_estado"
+                <StackLayout Orientation="Horizontal">
+                    <Picker x:Name="pck_estado"
                      SelectedIndexChanged="pck_estado_SelectedIndexChanged"
                      Title="Selecione o Estado:">
-                            <Picker.Items>
-                                <x:String>SP</x:String>
-                                <x:String>MG</x:String>
-                            </Picker.Items>
-                        </Picker>
-                    <Picker x:Name="pck_cidade"
-                            SelectedIndexChanged=""
-                            
-                        
-                        
-                        
-                        
-                        
+                        <Picker.Items>
+                            <x:String>SP</x:String>
+                            <x:String>MG</x:String>
+                        </Picker.Items>
                     </Picker>
-
-                    </StackLayout>
-
-                    <ListView.ItemTemplate x:Name="lst_bairros">
-                        <ListView.Header>
-                            <StackLayout>
-                                <Label Text="Nome do Bairro:"/>
-                            </StackLayout>
-                        </ListView.Header>
-                    </ListView.ItemTemplate>
-                    <DataTemplete>
-                        <ViewCell>
-
-                            <StackLayout>
-
-                                <Label Text="{Binding descricao_bairro}"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplete>
-
-
+                    <Picker x:Name="pck_cidade"
+                            SelectedIndexChanged="pck_cidade_SelectedIndexChanged"
+                            ItemDisplayBinding="{Binding descricao}"
+                            Title="Selecione a Cidade:">
+                    </Picker>
                 </StackLayout>
-            </AbsoluteLayout>
-        </ContentPage.Content>
+
+                <ListView>
+                    <ListView.Header>
+                        <StackLayout>
+                            <Label Text="Nome do Bairro:"/>
+                        </StackLayout>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding descricao_bairro}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout x:Name="carregando"
+                             IsVisible="false"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+
+                    <Frame Opacity="0.95"
+                           BackgroundColor="#333"
+                           CornerRadius="10"
+                           BorderColor="#00a54f"
+                           Padding="80">
+                        <StackLayout>
+                            <ActivityIndicator IsRunning="True" Color="#00a54f" />
+                            <Label Text="Carregando..." HorizontalOptions="Center" TextColor="#00a54f"/>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>
