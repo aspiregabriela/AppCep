@@ -87,10 +87,27 @@ namespace AppCep.Service
 
 
         }
+        public static async Task<List<Logradouro>> GetCepsByLogradouro(
+            string logradouro)
+        {
+            List<Logradouro> arr_ceps = new List<Logradouro>();
+            using (HttpClient client = new HttpClient())
+            {
 
+                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/cep/by=logradouro?logradouro" + logradouro);
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.
+                        Content.ReadAsStringAsync().Result;
 
+                    arr_ceps = JsonConvert.DeserializeObject<List<Logradouro>>(json);
 
+                        
+                } else 
+                    throw new Exception(response.RequestMessage.Content.ToString());
+            }
 
-
+            return arr_ceps;
+        }
     }
 }
