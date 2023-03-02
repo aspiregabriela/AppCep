@@ -21,8 +21,8 @@ namespace AppCep.View
         {
             InitializeComponent();
 
-           pck_cidade.ItemsSource= lista_cidades;
-           lista_bairros.ItemsSource= lista_bairros;
+           pck_cidade.ItemsSource = lista_cidades;
+           lst_bairro.ItemsSource= lista_bairros;
         }
 
         private async void pck_estado_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace AppCep.View
             {
                 Picker disparador= sender as Picker;
                 string estado_selecionado = disparador.SelectedItem as string;
-                List<Cidade> arr_cidades = await DataService.GetCidadesByEstado(estado_selecionado);
+                List<Cidade> arr_cidades = await DataService.GetCidadeByEstado(estado_selecionado);
                 lista_cidades.Clear();
                 arr_cidades.ForEach( i => lista_cidades.Add(i));
 
