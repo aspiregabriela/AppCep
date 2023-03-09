@@ -4,9 +4,39 @@
              x:Class="AppCep.View.BuscaCepPorLogradouro">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <SearchBar x:Name="txt_logradouro"
+                           Placeholder="Qual é sua rua?"/>
+                <Button Text="Buscar"/>
+            </StackLayout>
+
+            <ListView x:Name="lst_ceps">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto, *, *, Auto"
+                              RowDefinitions="Auto">
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                                   Text="CEP"/>
+                        <Label Grid.Row="0" Grid.Column="1"
+                                   Text="Logradouro"/>
+                        <Label Grid.Row="0" Grid.Column="2"
+                                   Text="Cidade"/>
+                        <Label Grid.Row="0" Grid.Column="3"
+                                   Text="UF"/>
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="Auto, *, *, Auto "
+                                      RowDefinitions="Auto">
+                                <Label Grid.Row="0" Grid.Column="0" Text="" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
