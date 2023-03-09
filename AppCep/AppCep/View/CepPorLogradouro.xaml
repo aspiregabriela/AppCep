@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCep.View.BuscaCepPorLogradouro">
+             x:Class="AppCep.View.CepPorLogradouro">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -13,7 +13,7 @@
 
             <ListView x:Name="lst_ceps">
                 <ListView.Header>
-                    <Grid ColumnDefinitions="Auto, *, *, Auto"
+                    <Grid ColumnDefinitions="Auto. *,*,Auto"
                           RowDefinitions="Auto">
                         <Label Grid.Row="0" Grid.Column="0"
                                Text="CEP"/>
@@ -30,8 +30,9 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid ColumnDefinitions="Auto, *, *, Auto"
-                                  RowDefinitions="Auto">
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding CEP}"/>
+                          RowDefinitions="Auto">
+                                <Label Grid.Row="0" Grid.Column="0"
+                               Text="{Binding CEP}"/>
                                 <Label Grid.Row="0" Grid.Column="1"
                                Text="{Binding descricao}"/>
                                 <Label Grid.Row="0" Grid.Column="2"

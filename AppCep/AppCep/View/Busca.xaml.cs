@@ -7,23 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppCep
+namespace AppCep.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Menu : ContentPage
+    public partial class Page1 : ContentPage
     {
-        public Menu()
+        public Page1()
         {
             InitializeComponent();
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(
-                new View.BuscaCepPorLogradouro());
-
-        }
-
-        
     }
 }
