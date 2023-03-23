@@ -27,15 +27,15 @@ namespace AppCep.View
 
                 string uf = disparador.SelectedItem as string;
 
-                List<Endereco> lista_endereco = await GetEnderecoByE;
+                List<Endereco> lista_cidade = await DataService.GetEnderecoByCep(uf);
 
-                lst_endereco.ItemsSource = lista_endereco;
-
+                lst_endereco.ItemsSource = lst_endereco;
             }
             catch (Exception ex)
             {
-               await DisplayAlert("Erro", ex.Message, "Ok");
+                await DisplayAlert("Erro", ex.Message, "Ok");
             }
+
         }
     }
 }
