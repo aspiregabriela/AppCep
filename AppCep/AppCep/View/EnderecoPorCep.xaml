@@ -4,66 +4,19 @@
              x:Class="AppCep.View.EnderecoPorCep">
     <ContentPage.Content>
         <StackLayout>
-            <AbsoluteLayout
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
-                <StackLayout>
-                    <StackLayout>
-                        <Picker x:Name="pck_estado"
-                            SelectedIndexChanged="pck_estado_SelectedIndexChanged"  
-                            Title="Selecione o seu Endereço"
-                            >
-                            <Picker.Items>
-                                <x:String>SP</x:String>
-                                <x:String>MG</x:String>
-                                <x:String>RJ</x:String>
-                            </Picker.Items>
-                        </Picker>
 
-                    </StackLayout>
-                    <ListView x:Name="lst_endereco">
-                        <ListView.Header>
-                            <Grid ColumnDefinitions="Auto, *, *, Auto"
-                          RowDefinitions="Auto"
-                          >
-                                <Label Grid.Row="0" Grid.Column="0"
-                               Text="Endereço: "/>
-                            </Grid>
-                        </ListView.Header>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid ColumnDefinitions="*, *, *, *"
-                                  RowDefinitions="Auto">
-                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding descricao_endereco}"/>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+            <StackLayout Orientation="Horizontal">
+                <SearchBar x:Name="txt_cep"
+                           Placeholder="Qual é seu CEP?"/>
+                <Button Text="Buscar" Clicked="Button_Clicked"/>
+            </StackLayout>
 
-                    <StackLayout x:Name="carregando"
-                             IsVisible="false"
-                             AbsoluteLayout.LayoutFlags="PositionProportional"
-                             AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
-                             >
+            <ActivityIndicator x:Name="act_caregando" IsRunning="False" />
 
-                        <Frame Opacity="0.95"
-                           BackgroundColor="#333"
-                           CornerRadius="10"
-                           BorderColor="#00A54F"
-                           Padding="80">
-                            <StackLayout>
-                                <ActivityIndicator IsRunning="True" Color="#00A54F" />
-                                <Label Text="Carregando..." HorizontalOptions="Center" TextColor="#00A54F"></Label>
+            <Label Text="{Binding descricao_cidade }" />
+            <Label Text="{Binding UF }" />
+            <Label Text="{Binding descricao }" />
 
-                            </StackLayout>
-
-                        </Frame>
-                    </StackLayout>
-                </StackLayout>
-
-            </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

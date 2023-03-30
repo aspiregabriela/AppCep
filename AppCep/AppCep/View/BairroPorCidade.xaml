@@ -10,20 +10,12 @@
             <StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Picker x:Name="pck_estado"
-                     SelectedIndexChanged="pck_estado_SelectedIndexChanged"
-                     Title="Selecione o Estado:">
-                        <Picker.Items>
-                            <x:String>SP</x:String>
-                            <x:String>MG</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Picker x:Name="pck_cidade"
-                            SelectedIndexChanged="pck_cidade_SelectedIndexChanged"
-                            ItemDisplayBinding="{Binding descricao}"
-                            Title="Selecione a Cidade:">
-                    </Picker>
+                    <SearchBar x:Name="txt_estado"
+                           Placeholder="Qual é seu estado?"/>
+                   
                 </StackLayout>
+
+                <Picker x:Name="pck_cidade" />
 
                 <ListView x:Name="lst_bairro">
                     <ListView.Header>

@@ -19,23 +19,26 @@ namespace AppCep.View
             InitializeComponent();
         }
 
-        private async void pck_estado_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             try
             {
-                Picker disparador = (Picker)sender;
+                act_caregando.IsRunning = true;
+                
+                Endereco endereco = await DataService.GetEnderecoByCep(txt_cep.Text);
 
-                string uf = disparador.SelectedItem as string;
-
-                List<Endereco> lista_cidade = await DataService.GetEnderecoByCep(uf);
-
-                lst_endereco.ItemsSource = lst_endereco;
+                BindingContext= endereco;             
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Erro", ex.Message, "Ok");
-            }
 
+            } finally
+            {
+                act_caregando.IsRunning = false;
+            }
         }
     }
 }

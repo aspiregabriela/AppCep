@@ -10,17 +10,17 @@ namespace AppCep.Service
 {
     public class DataService
     {
-        public static async Task<List<Endereco>> GetEnderecoByCep(string cep)
+        public static async Task<Endereco> GetEnderecoByCep(string cep)
         {
-            List<Endereco> end;
+            Endereco end;
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/bairro/by-cidade?id_cidade");
+                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/endereco/by-cep?cep=" + cep);
                 if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
 
-                    end = JsonConvert.DeserializeObject<List<Endereco>>(json);
+                    end = JsonConvert.DeserializeObject<Endereco>(json);
                 }
                 else
                     throw new Exception(response.RequestMessage.Content.ToString());
