@@ -11,11 +11,12 @@
 
                 <StackLayout Orientation="Horizontal">
                     <SearchBar x:Name="txt_estado"
-                           Placeholder="Qual é seu estado?"/>
+                           Placeholder="Qual cidade está procurado?"/>
                    
                 </StackLayout>
 
                 <Picker x:Name="pck_cidade" />
+
 
                 <ListView x:Name="lst_bairro">
                     <ListView.Header>
