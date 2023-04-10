@@ -48,12 +48,14 @@ namespace AppCep.View
         {
             try
             {
-                Picker disparador  = sender as Picker;
+                Picker disparador  = sender as Picker;                             
 
                 int id_cidade = disparador.SelectedIndex;
 
                 List<Bairro>arr_bairros = await DataService.GetBairrosByIdCidade(id_cidade);
-                lista_cidades.Clear();
+                lista_bairros.Clear();
+
+                arr_bairros.ForEach(item => lista_bairros.Add(item));
 
             }
             catch (Exception ex)
